@@ -54,7 +54,7 @@
             </p>
             <input type="text" name="message">
             <br><br>
-            <input type="submit" name="send" value="Versturen">
+            <input type="submit" value="Versturen">
         </form>
     </body>
 </html>
