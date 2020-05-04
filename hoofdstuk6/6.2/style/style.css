@@ -6,3 +6,7 @@ img{
 .float{
     display: inline;
 }
+
+body{
+    font-family: "Roboto Light";
+}
