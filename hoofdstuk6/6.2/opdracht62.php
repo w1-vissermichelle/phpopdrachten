@@ -23,11 +23,19 @@
             <div class="float"><input type="radio" onchange="document.getElementById('gameFrm').submit();" name="keuze" value="schaar"><img src="images/schaar.jpg"></div>
         </form>
         <?php
+            $opties = array("steen","papier","schaar");
+            $computerkeuzegetal = rand(0,2);
+            $computerkeuze = $opties[$computerkeuzegetal];
             if (isset($_GET['keuze']))
             {
                 echo "Jij koos: <img src='images/{$_GET['keuze']}.jpg'>";
                 //keuze computer?
             }
+            if (isset($_GET['keuze']))
+            {
+                echo "&nbsp;&nbsp;De computer koos: <img src='images/{$computerkeuze}.jpg'>";
+            }
+
         ?>
     </body>
 </html>
