@@ -27,15 +27,19 @@
             $opties = array("steen","papier","schaar");
             $computerkeuzegetal = rand(0,2);
             $computerkeuze = $opties[$computerkeuzegetal];
-            $_SESSION['user1'] = 0;
-            $_SESSION['user2'] = 0;
 
-            //De keuze van de speler laten zien
-            if (isset($_GET['keuze']))
-            {
-                echo "U koos: <img src='images/{$_GET['keuze']}.jpg'>";
-                session_start();
-            }
+        //De keuze van de speler laten zien
+        if (isset($_GET['keuze']))
+        {
+            echo "U koos: <img src='images/{$_GET['keuze']}.jpg'>";
+            session_start();
+        }
+
+        if (isset($_SESSION['user1']) == false) {
+                $_SESSION['user1'] = 0;
+                $_SESSION['user2'] = 0;
+        }
+
 
             //De keuze van de computer laten zien
             if (isset($_GET['keuze']))
@@ -49,7 +53,7 @@
                 //Met gelijke keuzes wint niemand
                 echo "<br>U heeft gelijk gespeeld";
             }
-            elseif($_GET['keuze'] == "schaar" && $computerkeuze == $opties[1] || $_GET['keuze'] == "steen" && $computerkeuze == $opties[2] || $_GET['keuze'] == "papier" && $computerkeuze == $opties[0])
+            elseif(($_GET['keuze'] == "schaar" && $computerkeuze == $opties[1]) || $_GET['keuze'] == "steen" && $computerkeuze == $opties[2] || $_GET['keuze'] == "papier" && $computerkeuze == $opties[0])
             {
                 //Schaar wint van papier, steen wint van schaar, papier wint van steen
                 echo "<br>U wint";
@@ -66,7 +70,10 @@
             if($_SESSION['user2'] >= 5 || $_SESSION['user1'] >= 5)
             {
                 echo "<br>Er is een winnaar! Maak een nieuwe keuze om een nieuw spel te starten";
-                session_destroy();
+                //session_destroy();
+                unset($_SESSION['user1']);
+                unset($_SESSION['user2']);
+
             }
         ?>
     </body>
