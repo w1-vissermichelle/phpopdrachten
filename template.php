@@ -7,6 +7,17 @@
  */
 ?>
 <html>
+    <style>
+        #mainfooter{
+            background-color: blue;
+            bottom: 0;
+        }
+
+        #mainheader{
+            background-color: red;
+            top: 0;
+        }
+    </style>
     <head>
         <title>
 
@@ -16,6 +27,11 @@
         <meta name="keywords" content="">
     </head>
     <body>
+        <header id="mainheader">
 
+        </header>
+        <footer id="mainfooter">
+
+        </footer>
     </body>
 </html>
